@@ -6,6 +6,7 @@ OpenClaw provider plugin: OpenCode Go models through an AxonHub gateway (OpenAI 
 - Models: models with `owned_by: opencode_go`, discovered live from AxonHub's `/v1/models`. New models appear after a Refresh in the model picker, or once the 60 s discovery cache expires.
 - Embedding and other non-chat models are filtered out.
 - Adding a key never replaces the primary model chosen in the UI.
+- Context window and output limits come from AxonHub when it reports them, otherwise from [models.dev](https://models.dev) (effort variants such as `-high` use their base model's limits). A `contextWindow` setting overrides both. Models without a match keep OpenClaw's default.
 
 ## API address and key
 
@@ -17,6 +18,7 @@ Set them in the OpenClaw UI (**Plugins → X Opencode → Settings**) or with en
 | API key | `apiKey` | `X_OPENCODE_API_KEY` | API key |
 | Context window | `contextWindow` | `X_OPENCODE_CONTEXT_WINDOW` | optional, default: the value AxonHub reports |
 | Streaming | `streaming` | `X_OPENCODE_STREAMING` | `true` (default) |
+| Limits from models.dev | `modelsDev` | `X_OPENCODE_MODELS_DEV` | `true` (default) |
 
 The key can also be saved as an auth profile under **Settings → Model providers**, or with `openclaw models auth paste-api-key --provider x-opencode`. Order: UI `apiKey`, then the auth profile, then the env var.
 

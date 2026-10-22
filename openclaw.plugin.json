@@ -63,6 +63,10 @@
     "streaming": {
       "label": "Streaming",
       "help": "On by default. Overrides X_OPENCODE_STREAMING"
+    },
+    "modelsDev": {
+      "label": "Limits from models.dev",
+      "help": "On by default: fills context window and output limits from models.dev for models AxonHub reports without them. Overrides X_OPENCODE_MODELS_DEV"
     }
   },
   "configSchema": {
@@ -80,6 +84,10 @@
         "minimum": 1
       },
       "streaming": {
+        "type": "boolean",
+        "default": true
+      },
+      "modelsDev": {
         "type": "boolean",
         "default": true
       }

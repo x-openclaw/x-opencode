@@ -1,6 +1,6 @@
 {
   "name": "x-opencode",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "OpenClaw provider plugin: OpenCode Go models through an AxonHub gateway (OpenAI format)",
   "private": true,
   "type": "module",
